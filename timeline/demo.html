@@ -1,0 +1,221 @@
+<html>
+    <body>
+        <style>
+#container {
+    /* max-width: 1200px;
+    min-width: 800px;
+    height: 400px; */
+    width: 100%;
+    height: 100%;
+    margin: 1em auto;
+}
+
+.scrolling-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.startPoint {
+    width: 0.5em;
+    height: 3em;
+    margin-top: -5px;
+    margin-left: -10px;
+    background-color: green;
+}
+.endPoint {
+    width: 0.5em;
+    height: 3em;
+    margin-top: -5px;
+    margin-left: 10px;
+    background-color: green;
+}
+.circle {
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: green;
+    border-radius: 50%;
+}
+        </style>
+<script src="https://code.highcharts.com/gantt/highcharts-gantt.js"></script>
+<script src="https://code.highcharts.com/gantt/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/gantt/modules/accessibility.js"></script>
+
+<figure class="highcharts-figure">
+<div class="scrolling-container">
+	<div id="container"></div>
+</div>
+</figure>
+
+
+<script type="text/javascript">
+Highcharts.ganttChart('container', {
+
+title: {
+    text: 'Left Axis as Table'
+},
+subtitle: {
+    text: 'with custom symboles in data labels'
+},
+lang: {
+    accessibility: {
+        axis: {
+            xAxisDescriptionPlural: 'The chart has a two-part X axis showing time in both week numbers and days.',
+            yAxisDescriptionSingular: 'The chart has a tabular Y axis showing a data table row for each point.'
+        }
+    }
+},
+
+accessibility: {
+    point: {
+        descriptionFormatter: function (point) {
+            return Highcharts.format(
+                point.milestone ?
+                    '{point.name}, milestone for {point.assignee} at {point.x:%Y-%m-%d}.' :
+                    '{point.name}, assigned to {point.assignee} from {point.x:%Y-%m-%d} to {point.x2:%Y-%m-%d}.',
+                { point }
+            );
+        }
+    }
+},
+
+xAxis: [{
+    opposite: false,
+    labels: {
+        format: '{value}',
+			formatter() {
+			    const unitName = this.tickPositionInfo.unitName;
+				const format = unitName === 'week' ? '%b' : '%b %e';
+
+				return Highcharts.dateFormat(format, this.value )
+			}
+    }
+    // tickPixelInterval: 70
+}],
+
+yAxis: {
+    type: 'category',
+    grid: {
+        enabled: true,
+        borderColor: 'rgba(0,0,0,0.3)',
+        borderWidth: 1,
+        columns: [{
+            title: {
+                text: 'Project'
+            },
+            labels: {
+                format: '{point.name}'
+            }
+        }, {
+            title: {
+                text: 'Assignee'
+            },
+            labels: {
+                format: '{point.assignee}'
+            }
+        }, {
+            title: {
+                text: 'Est. days'
+            },
+            labels: {
+                formatter: function () {
+                    var point = this.point,
+                        days = (1000 * 60 * 60 * 24),
+                        number = (point.x2 - point.x) / days;
+                    return Math.round(number * 100) / 100;
+                }
+            }
+        }, {
+            labels: {
+                format: '{point.start:%e. %b}'
+            },
+            title: {
+                text: 'Start date'
+            }
+        }, {
+            title: {
+                text: 'End date'
+            },
+            offset: 30,
+            labels: {
+                format: '{point.end:%e. %b}'
+            }
+        }]
+    }
+},
+
+tooltip: {
+    xDateFormat: '%e %b %Y, %H:%M'
+},
+
+series: [{
+    name: 'Project 1',
+    color: 'rgba(0,0,0,1)',
+    data: [{
+        start: Date.UTC(2017, 10, 18, 0),
+        end: Date.UTC(2017, 10, 18, 23),
+        name: 'Start prototype',
+        assignee: 'Richards',
+        color: 'rgba(0,0,0,0)',
+        y: 0
+    }, {
+        start: Date.UTC(2017, 10, 20, 8),
+        end: Date.UTC(2017, 10, 24, 16),
+        name: 'Develop',
+        assignee: 'oysteinmoseng',
+        y: 1
+    }, {
+        start: Date.UTC(2017, 10, 25, 8),
+        end: Date.UTC(2017, 10, 25, 16),
+        name: 'Develop',
+        assignee: 'oysteinmoseng',
+        milestone: true,
+        y: 1
+    }, {
+        start: Date.UTC(2017, 10, 25, 16),
+        end: Date.UTC(2017, 10, 25, 16),
+        name: 'Prototype done',
+        assignee: 'Richards',
+        milestone: true,
+        y: 2
+    }, {
+        start: Date.UTC(2017, 10, 27, 8),
+        end: Date.UTC(2017, 11, 3, 16),
+        name: 'Test prototype',
+        assignee: 'Richards',
+        fontSymbol: 'smile-o',
+        y: 3
+    }, {
+        start: Date.UTC(2017, 10, 23, 8),
+        end: Date.UTC(2017, 11, 15, 16),
+        name: 'Run acceptance tests',
+        assignee: 'Halliburton',
+        y: 4
+    }],
+    dataLabels: [{
+        enabled: true,
+        format: '<div class="circle">&nbsp;</div>',
+        useHTML: true,
+        align: 'center',
+        allowOverlap: true,
+    }]
+    // dataLabels: [{
+    //     enabled: true,
+    //     format: '<div class="startPoint">&nbsp;</div>',
+    //     useHTML: true,
+    //     align: 'left',
+    //     allowOverlap: true
+    // }, {
+    //     enabled: true,
+    //     format: '<div class="endPoint">&nbsp;</div>',
+    //     useHTML: true,
+    //     align: 'right',
+    //     allowOverlap: true
+    // }]
+}],
+// exporting: {
+//     sourceWidth: 1000
+// }
+});
+
+        </script>
+    </body>
+</html>
