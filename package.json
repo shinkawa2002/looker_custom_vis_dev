@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --env environment=development",
     "build:development": "webpack --config webpack.config.js --env environment=development",
-    "build:production": "webpack --config webpack.config.js --env environment=production"
+    "build:production": "webpack --config webpack.config.js --env environment=production",
+    "develop": "webpack serve --hot --port 8081 --disable-hot-check --config webpack.develop"
   },
   "author": "",
   "license": "ISC",

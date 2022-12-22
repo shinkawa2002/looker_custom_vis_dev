@@ -9,6 +9,7 @@ module.exports = (env) => {
       bullet: path.join(__dirname, "bullet_chart", "main.js"),
       timeline_v2: path.join(__dirname, "timeline", "main.js"),
       stackedBar: path.join(__dirname, "barchart", "main.js"),
+      scrollBarchart: path.join(__dirname, "barchart_scroll", "main.js"),
     },
     output: {
       filename: "[name].js",
