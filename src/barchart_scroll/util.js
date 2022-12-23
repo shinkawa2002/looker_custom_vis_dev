@@ -1,3 +1,6 @@
+// dependecies
+//https://code.highcharts.com/highcharts.js
+
 import * as Highcharts from "highcharts";
 
 export const CustomUtil = {

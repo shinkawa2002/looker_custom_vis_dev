@@ -1,5 +1,9 @@
-// import * as Highcharts from "highcharts"
+// dependecies
+//https://code.highcharts.com/stock/highstock.js
+//https://code.highcharts.com/modules/accessibility.js
+
 import * as Highcharts from "highcharts/highstock"
+import "highcharts/modules/accessibility"
 import { CustomUtil, ColorPallet } from "./util"
 import { options } from "./options"
 

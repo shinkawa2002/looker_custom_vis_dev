@@ -5,7 +5,4 @@ module.exports = {
   output: {
     path: path.join(__dirname, "..", "stable"),
   },
-  optimization: {
-    minimize: false,
-  },
 };
