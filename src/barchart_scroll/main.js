@@ -1,6 +1,6 @@
 // import * as Highcharts from "highcharts"
 import * as Highcharts from "highcharts/highstock"
-import { CustomUtil, ColorPallet } from "../barchart/util"
+import { CustomUtil, ColorPallet } from "./util"
 import { options } from "./options"
 
 const modifyOptions = (vis, config, data) => {
@@ -50,6 +50,7 @@ const modifyOptions = (vis, config, data) => {
         needCl.push(cl)
     })
 
+    // remove color config for unused measure
     colorKeys.forEach(key => {
         if (!needCl.includes(key)) {
             delete options[key]

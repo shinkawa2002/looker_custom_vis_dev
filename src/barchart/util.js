@@ -95,7 +95,7 @@ export const CustomUtil = {
         const unitRegex = /([^0#,.]+)$/g;
         const unitString = measure_like.value_format.match(unitRegex);
 
-        const retVal = unitString.includes("%") ? point*100: point;
+        const retVal = unitString?.includes("%") ? point*100: point;
         const formattedValue = []
         if (symbol) formattedValue.push(symbol[0]);
         formattedValue.push(Highcharts.numberFormat(retVal, decimalPoint, ".", ","));
