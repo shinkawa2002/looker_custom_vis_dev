@@ -22,8 +22,9 @@ The visualizations provided in this repository are intended to serve as examples
 
 # Commands
 
-* `yarn build:debelopment` - Compiles the code in `/src` to `/dist` via webpack
+* `yarn build:development` - Compiles the code in `/src` to `/dist` via webpack
 * `yarn start` - Runs web server with self-cetrificate to serve custom visualization via port 8081 from local.
+* `yarn build:production` - Compilles and optimize the code in `/src` to `/stable` via webpack
 
 
 ----
