@@ -8,11 +8,11 @@ The visualizations provided in this repository are intended to serve as examples
 
 [Looker](https://looker.com/)'s Visualization API provides a simple JavaScript interface to creating powerful, customizable visualizations that seamlessly integrate into your data applications. :bar_chart: :chart_with_downwards_trend: :chart_with_upwards_trend:
 
-### [Getting Started Guide &rarr;](docs/getting_started.md)
+### [Getting Started Guide &rarr;](https://github.com/looker-open-source/custom_visualizations_v2/blob/master/docs/getting_started.md)
 
-### [Visualization API Reference &rarr;](docs/api_reference.md)
+### [Visualization API Reference &rarr;](https://github.com/looker-open-source/custom_visualizations_v2/blob/master/docs/api_reference.md)
 
-### [View Examples Library &rarr;](src/examples)
+### [View Examples Library &rarr;](https://github.com/looker-open-source/custom_visualizations_v2/blob/master/src/examples)
 
 # Getting Started
 
