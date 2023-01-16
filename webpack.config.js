@@ -11,6 +11,7 @@ module.exports = (env) => {
       stackedBar: path.join(__dirname, "src/barchart", "main.js"),
       scrollBarchart: path.join(__dirname, "src/barchart_scroll", "main.js"),
       a_good_table: path.join(__dirname, "src/a-good-table", "main.js"),
+      stackedBar: path.join(__dirname, "src/stackedBar", "main.js"),
     },
     output: {
       filename: "[name].js",

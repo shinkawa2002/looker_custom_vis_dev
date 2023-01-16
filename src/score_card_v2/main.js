@@ -108,7 +108,7 @@ const visObject = {
     // make options for each measures, and set data for display
     const dispData = [];
     let addRows = [];
-    let rowData;
+    let rowData = {};
     queryResponse.fields.measure_like.forEach(mes => {
       let mainFlag = true;
       if (config[mes.name + '-type'] && config[mes.name + '-type'] !== "main") mainFlag = false;

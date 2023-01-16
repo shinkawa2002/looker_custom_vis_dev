@@ -4,7 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --env environment=development",
+    "start": "yarn build:development && webpack-dev-server --env environment=development",
     "build:development": "webpack --config webpack.config.js --env environment=development",
     "build:production": "webpack --config webpack.config.js --env environment=production",
     "develop": "webpack serve --hot --port 8081 --disable-hot-check --config webpack.develop"
@@ -12,18 +12,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "create-react-app": "^4.0.3",
-    "@tidyjs/tidy": "^2.4.4",
-    "d3": "^7.2.1",
-    "d3-array": "^3.1.1",
-    "highcharts": "^9.3.2",
+    "chart.js": "^4.1.2",
+    "chartjs-plugin-datalabels": "^2.2.0",
+    "datatables.mark.js": "github:julmot/datatables.mark.js",
     "datatables.net": "^1.11.3",
     "datatables.net-dt": "^1.11.3",
-    "datatables.mark.js": "github:julmot/datatables.mark.js",
-    "mark.js": "github:julmot/mark.js",
-    "jquery": "^3.6.0",
-    "numeral": "^2.0.6",
-    "underscore": "^1.13.1"
+    "highcharts": "^9.3.2",
+    "mark.js": "github:julmot/mark.js"
   },
   "devDependencies": {
     "webpack": "^5.65.0",

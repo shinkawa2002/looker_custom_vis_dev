@@ -1,4 +1,3 @@
-import { pointRadial } from "d3";
 import * as Highcharts from "highcharts";
 import {CustomUtil} from './util';
 
