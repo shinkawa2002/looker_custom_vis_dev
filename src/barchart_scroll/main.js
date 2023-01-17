@@ -41,7 +41,7 @@ const modifyOptions = (vis, config, data) => {
         if (!options[cl]) {
             const defColor = config[cl] ? config[cl] : ColorPallet["BoardWalk"][idx]
             options[cl]= {
-                type: 'array',
+                type: 'string',
                 label: name,
                 display: 'color',
                 section: 'Series',
@@ -137,7 +137,7 @@ const visObject = {
                     data: new Array(labels.length),
                     links: new Array(labels.length),
                     rendered_values: new Array(labels.length),
-                    color: config[`color_${mes.name}`] ? config[`color_${mes.name}`][0] : ColorPallet["BoardWalk"][colorIdx]
+                    color: config[`color_${mes.name}`] ? config[`color_${mes.name}`] : ColorPallet["BoardWalk"][colorIdx]
                 })
                 colorIdx++
             } else {
@@ -150,7 +150,7 @@ const visObject = {
                         data: new Array(labels.length),
                         links: new Array(labels.length),
                         rendered_values: new Array(labels.length),
-                        color: config[`color_${mes.name}-${pIdx}`] ? config[`color_${mes.name}-${pIdx}`][0] : ColorPallet["BoardWalk"][colorIdx]
+                        color: config[`color_${mes.name}-${pIdx}`] ? config[`color_${mes.name}-${pIdx}`] : ColorPallet["BoardWalk"][colorIdx]
                     })
                     colorIdx++
                 })
